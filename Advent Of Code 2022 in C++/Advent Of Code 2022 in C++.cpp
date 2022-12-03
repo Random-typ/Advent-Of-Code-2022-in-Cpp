@@ -1,5 +1,6 @@
 #include "day1.h"
 #include "day2.h"
+#include "day3.h"
 #include <iostream>
 
 int main()
@@ -28,5 +29,13 @@ int main()
     * exactly according to your strategy guide?
     */
     std::cout << day2Part2() << "\n";
+    /*Day 3
+    * https://adventofcode.com/2022/day/3
+    * Find the item type that appears in both compartments of 
+    * each rucksack. 
+    * What is the sum of the priorities of those item types?
+    */
+    std::cout << day3() << "\n";
+
     return 0;
 }

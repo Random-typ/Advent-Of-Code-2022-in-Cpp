@@ -1,19 +1,5 @@
 #include "day2.h"
 
-int day2GetScore(char _choiceXYZ)
-{
-	switch (_choiceXYZ)
-	{
-	case 'X':// Rock
-		return 1;
-	case 'Y':// Paper
-		return 2;
-	case 'Z':// Scissors
-		return 3;
-	}
-	return 0;
-}
-
 std::string day2()
 {
 	std::string input = basics::getInput("day2") + "\n\n"; // append new line spares about 4 lines of code
