@@ -36,6 +36,13 @@ int main()
     * What is the sum of the priorities of those item types?
     */
     std::cout << day3() << "\n";
+    /*Day 3 Part 2
+    * https://adventofcode.com/2022/day/3#part2
+    * Find the item type that corresponds to the badges of each
+    * three-Elf group. 
+    * What is the sum of the priorities of those item types?
+    */
+    std::cout << day3Part2() << "\n";
 
     return 0;
 }

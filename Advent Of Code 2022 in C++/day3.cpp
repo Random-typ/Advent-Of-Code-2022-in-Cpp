@@ -13,15 +13,10 @@ std::string day3()
 		// compare compartments
 		for (size_t i = 0; i < firstCompartment.size(); i++)
 		{
-			for (size_t ii = 0; ii < secondCompartment.size(); ii++)
+			if (secondCompartment.find(firstCompartment[i]) != std::string::npos)
 			{
-				if (secondCompartment[ii] == firstCompartment[i])
-				{
-					duplicates += firstCompartment[i];
-					// break out of this backpack
-					i = firstCompartment.size();
-					break;
-				}
+				duplicates += firstCompartment[i];
+				break;
 			}
 		}
 	}
@@ -37,4 +32,43 @@ std::string day3()
 		sum += duplicates[i] - 38;
 	}
 	return "The sum of the priorities is " + std::to_string(sum) +".";
+}
+
+std::string day3Part2()
+{
+	std::string input = basics::getInput("day3") + "\n\n"; // append new line spares about 4 lines of code
+	std::string badges;
+	std::vector<std::string> rucksacks;
+	for (int lastPos = -1, pos = input.find("\n"); pos != std::string::npos; lastPos = pos, pos = input.find("\n", pos + 1))
+	{
+		std::string rucksack = input.substr(lastPos + 1, pos - lastPos - 1);
+		// create group
+		rucksacks.push_back(rucksack);
+		if (rucksacks.size() < 3)
+			continue;
+		// find badge
+		for (size_t i = 0; i < rucksacks[0].size(); i++)
+		{
+			if (rucksacks[1].find(rucksacks[0][i]) != std::string::npos && 
+				rucksacks[2].find(rucksacks[0][i]) != std::string::npos)
+			{
+				badges += rucksacks[0][i];
+				break;
+			}
+		}
+		rucksacks.clear();
+	}
+	// calculate sum of the badges
+	size_t sum = 0;
+	for (size_t i = 0; i < badges.size(); i++)
+	{
+		if (badges[i] > 'a')
+		{
+			sum += badges[i] - 96;
+			continue;
+		}
+		sum += badges[i] - 38;
+	}
+
+	return "The sum of the priorities is " + std::to_string(sum) + ".";
 }
