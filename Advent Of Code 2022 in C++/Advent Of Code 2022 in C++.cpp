@@ -1,6 +1,7 @@
 #include "day1.h"
 #include "day2.h"
 #include "day3.h"
+#include "day4.h"
 #include <iostream>
 
 int main()
@@ -43,6 +44,13 @@ int main()
     * What is the sum of the priorities of those item types?
     */
     std::cout << day3Part2() << "\n";
+    /*Day 4
+    * https://adventofcode.com/2022/day/3#part2
+    * Find the item type that corresponds to the badges of each
+    * three-Elf group. 
+    * What is the sum of the priorities of those item types?
+    */
+    std::cout << day4() << "\n";
 
     return 0;
 }

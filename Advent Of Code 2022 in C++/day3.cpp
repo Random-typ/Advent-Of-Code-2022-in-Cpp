@@ -69,6 +69,5 @@ std::string day3Part2()
 		}
 		sum += badges[i] - 38;
 	}
-
 	return "The sum of the priorities is " + std::to_string(sum) + ".";
 }
