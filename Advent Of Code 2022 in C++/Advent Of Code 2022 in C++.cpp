@@ -45,12 +45,15 @@ int main()
     */
     std::cout << day3Part2() << "\n";
     /*Day 4
-    * https://adventofcode.com/2022/day/3#part2
-    * Find the item type that corresponds to the badges of each
-    * three-Elf group. 
-    * What is the sum of the priorities of those item types?
+    * https://adventofcode.com/2022/day/4
+    * In how many assignment pairs does one range fully contain the other?
     */
     std::cout << day4() << "\n";
+    /*Day 4 Part 2
+    * https://adventofcode.com/2022/day/4#part2
+    * In how many assignment pairs do the ranges overlap?
+    */
+    std::cout << day4Part2() << "\n";
 
     return 0;
 }
