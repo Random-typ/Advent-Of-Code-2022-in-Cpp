@@ -35,7 +35,6 @@ std::string day4()
 std::string day4Part2()
 {
 	std::string input = basics::getInput("day4") + "\n\n"; // append new line spares about 4 lines of code
-	//input = "2-4,6-8\n2-3,4-5\n5-7,7-9\n2-8,3-7\n6-6,4-6\n2-6,4-8\n\n";
 	size_t pairCount = 0;
 	for (int lastPos = -1, pos = input.find("\n"); pos != std::string::npos; lastPos = pos, pos = input.find("\n", pos + 1))
 	{

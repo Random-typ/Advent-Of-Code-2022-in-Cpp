@@ -2,6 +2,7 @@
 #include "day2.h"
 #include "day3.h"
 #include "day4.h"
+#include "day5.h"
 #include <iostream>
 
 int main()
@@ -54,6 +55,12 @@ int main()
     * In how many assignment pairs do the ranges overlap?
     */
     std::cout << day4Part2() << "\n";
+    /*Day 5
+    * https://adventofcode.com/2022/day/5
+    * After the rearrangement procedure completes, what
+    * crate ends up on top of each stack?
+    */
+    std::cout << day5() << "\n";
 
     return 0;
 }
