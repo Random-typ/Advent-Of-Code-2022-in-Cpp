@@ -3,6 +3,7 @@
 #include "day3.h"
 #include "day4.h"
 #include "day5.h"
+#include "day6.h"
 #include <iostream>
 
 int main()
@@ -67,6 +68,12 @@ int main()
     * crate ends up on top of each stack?
     */
     std::cout << day5Part2() << "\n";
+    /*Day 6
+    * https://adventofcode.com/2022/day/6
+    * How many characters need to be processed before
+    * the first start-of-packet marker is detected?
+    */
+    std::cout << day6() << "\n";
 
     return 0;
 }

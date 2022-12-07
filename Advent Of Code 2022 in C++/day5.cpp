@@ -122,7 +122,7 @@ std::string day5()
 			crates[to].insert(crates[to].end(), crates[from].back());
 			crates[from].pop_back();
 		}
-		Sleep(10);// animation speed (frame time?)
+		//Sleep(40);// animation speed (frame time?)
 		day5PrintOut(crates, info.dwCursorPosition);
 	}
 	std::string topCrates;
@@ -206,7 +206,7 @@ std::string day5Part2()
 		{
 			crates[to].insert(crates[to].end(), tower[i - 1]);
 		}
-		Sleep(10);// animation speed (frame time?)
+		//Sleep(40);// animation speed (frame time?)
 		day5PrintOut(crates, info.dwCursorPosition);
 	}
 	std::string topCrates;
