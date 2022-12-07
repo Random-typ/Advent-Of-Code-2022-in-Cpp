@@ -74,6 +74,12 @@ int main()
     * the first start-of-packet marker is detected?
     */
     std::cout << day6() << "\n";
+    /*Day 6 Part 2
+    * https://adventofcode.com/2022/day/6#part2
+    * How many characters need to be processed before
+    * the first start-of-message marker is detected?
+    */
+    std::cout << day6Part2() << "\n";
 
     return 0;
 }
