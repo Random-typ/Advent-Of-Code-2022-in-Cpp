@@ -61,6 +61,12 @@ int main()
     * crate ends up on top of each stack?
     */
     std::cout << day5() << "\n";
+    /*Day 5 Part 2
+    * https://adventofcode.com/2022/day/5#part2
+    * After the rearrangement procedure completes,what
+    * crate ends up on top of each stack?
+    */
+    std::cout << day5Part2() << "\n";
 
     return 0;
 }

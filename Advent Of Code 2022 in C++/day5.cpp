@@ -122,7 +122,7 @@ std::string day5()
 			crates[to].insert(crates[to].end(), crates[from].back());
 			crates[from].pop_back();
 		}
-		Sleep(30);// animation speed
+		Sleep(10);// animation speed (frame time?)
 		day5PrintOut(crates, info.dwCursorPosition);
 	}
 	std::string topCrates;
@@ -131,5 +131,89 @@ std::string day5()
 		topCrates += crates[i].back();
 	}
 	
+	return "The top crates are: " + topCrates;
+}
+
+std::string day5Part2()
+{
+	std::string input = basics::getInput("day5") + "\n\n"; // append new line spares about 4 lines of code
+	std::string initialCrates;
+	// read initial crate state
+	for (int lastPos = -1, pos = input.find("\n"); pos != std::string::npos; lastPos = pos, pos = input.find("\n", pos + 1))
+	{
+		// get elves areas
+		std::string row = input.substr(lastPos + 1, pos - lastPos);
+		if (row.size() < 2)
+		{
+			break;
+		}
+		initialCrates += row;
+	}
+	// parse initial crate state
+	//	  x-axis  y-axis crate-type
+	//      \/      \/       \/
+	std::vector<std::vector<char>> crates;
+	for (int width = initialCrates.find("\n") + 1, pos = initialCrates.find("["); pos != std::string::npos; pos = initialCrates.find("[", pos + 1))
+	{
+
+		char crate = initialCrates[pos + 1];
+		size_t height = initialCrates.length() / width - 2;
+		size_t x = (pos % width) / 4;
+		size_t y = height - (pos / width);
+
+		if (crates.size() <= x)
+		{// resize of necessary
+			crates.resize(x + 1);
+		}
+		if (crates[x].size() <= y)
+		{// resize of necessary
+			crates[x].resize(y + 1);
+		}
+		crates[x][y] = crate;
+	}
+	// get console cursor pos 
+	CONSOLE_SCREEN_BUFFER_INFO info;
+	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &info);
+
+	day5PrintOut(crates, info.dwCursorPosition);
+
+	// move crates according to plan
+	for (int lastPos = initialCrates.size(), pos = input.find("\n", initialCrates.size() + 1); pos != std::string::npos; lastPos = pos, pos = input.find("\n", pos + 1))
+	{
+		// get movement plan
+		std::string plan = input.substr(lastPos + 1, pos - lastPos);
+		size_t start = plan.find(' ');
+		if (start == std::string::npos)
+		{// done
+			break;
+		}
+		size_t end = plan.find(' ', start + 1);
+		int move = std::stoi(plan.substr(start, end));
+		start = plan.find(' ', end + 1);
+		end = plan.find(' ', start + 1);
+		int from = std::stoi(plan.substr(start, end)) - 1;
+		start = plan.find(' ', end + 1);
+		end = plan.find(' ', start + 1);
+		int to = std::stoi(plan.substr(start, end)) - 1;
+		// move crates
+		std::vector<char> tower;
+		for (size_t i = 0; i < move; i++)
+		{
+			tower.push_back(crates[from].back());
+			crates[from].pop_back();
+		}
+		for (size_t i = tower.size(); i > 0; i--)
+		{
+			crates[to].insert(crates[to].end(), tower[i - 1]);
+		}
+		Sleep(10);// animation speed (frame time?)
+		day5PrintOut(crates, info.dwCursorPosition);
+	}
+	std::string topCrates;
+	for (size_t i = 0; i < crates.size(); i++)
+	{
+		topCrates += crates[i].back();
+	}
+
 	return "The top crates are: " + topCrates;
 }
