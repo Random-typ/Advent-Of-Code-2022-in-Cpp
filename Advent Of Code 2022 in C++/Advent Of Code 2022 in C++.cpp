@@ -5,6 +5,7 @@
 #include "day5.h"
 #include "day6.h"
 #include "day7.h"
+#include "day8.h"
 #include <iostream>
 
 int main()
@@ -89,12 +90,17 @@ int main()
     */
     std::cout << day7() << "\n";
     /*Day 7 Part 2
-    * https://adventofcode.com/2022/day/6#part2
+    * https://adventofcode.com/2022/day/7#part2
     * Find the smallest directory that, if deleted, would free
     * up enough space on the filesystem to run the update.
     * What is the total size of that directory?
     */
     std::cout << day7Part2() << "\n";
+    /*Day 8
+    * https://adventofcode.com/2022/day/8
+    * How many trees are visible from outside the grid?
+    */
+    std::cout << day8() << "\n";
 
     return 0;
 }
