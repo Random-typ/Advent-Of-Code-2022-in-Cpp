@@ -4,6 +4,7 @@
 #include "day4.h"
 #include "day5.h"
 #include "day6.h"
+#include "day7.h"
 #include <iostream>
 
 int main()
@@ -80,6 +81,13 @@ int main()
     * the first start-of-message marker is detected?
     */
     std::cout << day6Part2() << "\n";
+    /*Day 7
+    * https://adventofcode.com/2022/day/6#part2
+    * Find all of the directories with a total size of
+    * at most 100000.
+    * What is the sum of the total sizes of those directories?
+    */
+    std::cout << day7() << "\n";
 
     return 0;
 }
