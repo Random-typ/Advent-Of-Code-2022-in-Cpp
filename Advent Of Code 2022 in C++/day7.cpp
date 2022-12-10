@@ -38,6 +38,23 @@ day7Directory& day7Directory::getdir(std::string _path)
 	return subdirectorys.back();
 }
 
+day7Directory day7Directory::getSmallestDir(size_t _size, day7Directory _smallest)
+{
+	for (day7Directory& dir : subdirectorys)
+	{
+		size_t size = dir.getSize();
+		if (size >= _size && size < _smallest.getSize())
+		{
+			_smallest = dir; 
+		}
+		if (dir.isDirectory())
+		{
+			_smallest = dir.getSmallestDir(_size, _smallest);
+		}
+	}
+	return _smallest;
+}
+
 const size_t day7Directory::getSize(size_t maxsize)
 {
 	if (!isDirectory())
@@ -143,7 +160,7 @@ int count(day7Directory _root) {
 	return num;
 }
 
-std::string day7()
+day7Directory parseRoot()
 {
 	std::string input = basics::getInput("day7") + "\n\n";
 	day7Directory root;
@@ -201,11 +218,15 @@ std::string day7()
 			newdir.size = std::stoull(size);
 		}
 		newdir.name = line.substr(size.size() + 1);
-		day7Directory& dir = root.getdir(path); 
+		day7Directory& dir = root.getdir(path);
 		dir.subdirectorys.push_back(newdir);
 	}
-	
+	return root;
+}
 
+std::string day7()
+{
+	day7Directory root = parseRoot();
 	std::cout << root.print();
 	std::vector<day7Directory> d;
 
@@ -216,4 +237,16 @@ std::string day7()
 		size += d[i].getSize();
 	}
 	return "The total size of these directorys is " + std::to_string(size) + ".";
+}
+
+std::string day7Part2()
+{
+	day7Directory root = parseRoot();
+	size_t diskSpace = 70000000;
+	size_t spaceRequiredForUpdate = 30000000;
+	size_t freeSpace = diskSpace - root.getSize();
+	size_t missingSpace = spaceRequiredForUpdate - freeSpace;
+	day7Directory todelete = root.getSmallestDir(missingSpace);
+	size_t size = todelete.getSize();
+	return "The size of that directory is " + std::to_string(size) + ".";
 }

@@ -82,12 +82,19 @@ int main()
     */
     std::cout << day6Part2() << "\n";
     /*Day 7
-    * https://adventofcode.com/2022/day/6#part2
+    * https://adventofcode.com/2022/day/7
     * Find all of the directories with a total size of
     * at most 100000.
     * What is the sum of the total sizes of those directories?
     */
     std::cout << day7() << "\n";
+    /*Day 7 Part 2
+    * https://adventofcode.com/2022/day/6#part2
+    * Find the smallest directory that, if deleted, would free
+    * up enough space on the filesystem to run the update.
+    * What is the total size of that directory?
+    */
+    std::cout << day7Part2() << "\n";
 
     return 0;
 }
