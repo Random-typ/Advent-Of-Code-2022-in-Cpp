@@ -98,9 +98,16 @@ int main()
     std::cout << day7Part2() << "\n";
     /*Day 8
     * https://adventofcode.com/2022/day/8
+    * Consider your map.
     * How many trees are visible from outside the grid?
     */
     std::cout << day8() << "\n";
+    /*Day 8 Part 2
+    * https://adventofcode.com/2022/day/8#part2
+    * Consider each tree on your map.
+    * What is the highest scenic score possible for any tree?
+    */
+    std::cout << day8Part2() << "\n";
 
     return 0;
 }
